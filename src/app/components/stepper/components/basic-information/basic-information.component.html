@@ -1,0 +1,56 @@
+<div class="stepper-content">
+  <form [formGroup]="basicInformationForm" (ngSubmit)="submitForm()">
+    <p-card>
+
+      <ng-template class="card-header">
+        <h3>please choose your picture</h3>
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <div class="row mx-0">
+
+          <div class="field col-12 col-md-6 col-lg-6">
+            <label for="amount">amount</label>
+            <input min="0" id="amount" type="number" required pInputText formControlName="amount"
+                   [ngClass]="{'ng-dirty ng-invalid':amount.invalid && submitted}">
+            <small *ngIf="(amount.hasError('required') && submitted) " class="p-error">amount is required.</small>
+            <small *ngIf="(amount.hasError('min')  && submitted) " class="p-error">amount value is invalid.</small>
+          </div>
+
+          <div class="field col-12 col-md-6 col-lg-6">
+            <label for="date">date</label>
+            <p-calendar id="date" [minDate]="minDate" [maxDate]="maxDate" styleClass="w-100" formControlName="date"
+                        [ngClass]="{'ng-dirty ng-invalid':amount.invalid&& submitted}"></p-calendar>
+            <small *ngIf="(date.invalid && submitted) " class="p-error">date is required.</small>
+          </div>
+
+          <div class="field col-12 col-md-6 col-lg-6">
+            <label for="status">status</label>
+            <p-dropdown styleClass="w-100" id="status" inputId="status" [options]="statuses" optionLabel="title"
+                        placeholder="Select a status" formControlName="status"
+                        [ngClass]="{'ng-dirty ng-invalid':status.invalid&& submitted}"></p-dropdown>
+            <small *ngIf="(status.invalid && submitted) " class="p-error">status is required.</small>
+          </div>
+
+          <div class="field col-12 col-md-6 col-lg-6">
+            <label for="Source-of-fund">Source of fund</label>
+            <input id="Source-of-fund" type="text" pInputText pKeyFilter="alpha" placeholder="Source of fund"
+                   formControlName="source" [ngClass]="{'ng-dirty ng-invalid ':source.invalid&& submitted}">
+            <small *ngIf="(source.invalid && submitted) " class="p-error">source is required.</small>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <div class="d-flex justify-content-between">
+          <p-button label="back" [routerLink]="['../upload-image']" icon="pi pi-angle-left" iconPos="left"></p-button>
+          <p-button label="Next" type="submit" icon="pi pi-angle-right" iconPos="right"
+                    [disabled]="this.basicInformationForm.invalid"></p-button>
+        </div>
+      </ng-template>
+    </p-card>
+  </form>
+</div>
+
+
+

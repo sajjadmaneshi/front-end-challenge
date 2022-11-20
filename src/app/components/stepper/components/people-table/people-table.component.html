@@ -1,0 +1,47 @@
+
+<div class="stepper-content">
+  <p-card>
+
+    <ng-template class="card-header">
+      <h3>people</h3>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <p-table [value]="peoples"
+               [tableStyle]="{'min-width': '50rem'}"
+               [(selection)]="selectedValue">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>checkBox</th>
+            <th>id</th>
+            <th>Name</th>
+            <th>family</th>
+            <th>phoneNumber</th>
+            <th>address</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-people>
+          <tr>
+            <td>   <p-tableRadioButton [value]="people" ></p-tableRadioButton></td>
+            <td>{{people.id}}</td>
+            <td>{{people.name}}</td>
+            <td>{{people.family}}</td>
+            <td>{{people.phoneNumber}}</td>
+            <td>{{people.address}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="d-flex justify-content-between">
+        <p-button label="back" [routerLink]="['../basic-information']" icon="pi pi-angle-left" iconPos="left" ></p-button>
+        <p-button label="show result" (click)="showResult()" icon="pi pi-angle-right" iconPos="right" [disabled]="!selectedValue"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+
+
+

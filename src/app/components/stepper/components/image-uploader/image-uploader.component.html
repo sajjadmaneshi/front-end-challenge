@@ -1,0 +1,36 @@
+
+<div class="stepper-content">
+
+  <p-card>
+    <ng-template class="card-header">
+      <h3>please choose your picture</h3>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <p-fileUpload [showUploadButton]="false"
+                    [showCancelButton]="false"
+                    name="uploadImage[]"
+                    (onSelect)="onUpload($event)"
+                    (onRemove)="onRemove()"
+                    accept="image/*" [maxFileSize]="1000000">
+
+        <ng-template  pTemplate="content" let-files >
+          <div *ngIf="uploadedFileBase64==null">no picture selected yet</div>
+        </ng-template>
+      </p-fileUpload>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="d-flex justify-content-end">
+        <p-button label="Next"
+                  (onClick)="nextPage()"
+                  icon="pi pi-angle-right"
+                  iconPos="right" [disabled]="uploadedFileBase64==null"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+
+
+

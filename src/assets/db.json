@@ -1,0 +1,39 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "sajjad",
+      "family": "maneshi",
+      "phoneNumber": 9394241607,
+      "address": "shiraz sinama saadi"
+    },
+    {
+      "id": 2,
+      "name": "amir",
+      "family": "amiri",
+      "phoneNumber": 937111111,
+      "address": "Tehran"
+    },
+    {
+      "id": 3,
+      "name": "json",
+      "family": "statham",
+      "phoneNumber": 922222222,
+      "address": "us"
+    },
+    {
+      "id": 4,
+      "name": "angelina ",
+      "family": "jolie",
+      "phoneNumber": 9634512585214,
+      "address": "UK"
+    },
+    {
+      "id": 5,
+      "name": "brad",
+      "family": "pitt",
+      "phoneNumber": 9552521414,
+      "address": "US"
+    }
+  ]
+}

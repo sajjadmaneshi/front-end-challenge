@@ -1,0 +1,69 @@
+<div class="finalResult">
+  <p-card>
+    <ng-template pTemplate="title">
+      final Result
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <p-messages severity="info" *ngIf="finalResult">
+
+        <ng-template pTemplate="">
+          <div class="m-2 w-100 d-flex flex-column">
+            <div class="basic-info d-flex justify-content-between">
+              <img alt="chosen photo"
+                   [src]="[this.finalResult.uploadedImage?.picture?
+                   ('data:image/png;base64,'+this.finalResult.uploadedImage?.picture):
+                   'assets/images/no-image-available.png']" width="32"/>
+
+              <span>
+                <label for="amount">amount: </label>
+                <b class="px-2" id="amount">{{this.finalResult.basicInfo?.amount??'---'}}</b>
+              </span>
+
+              <span>
+                 <label for="date">date: </label>
+                 <b class="px-2" id="date">{{(this.finalResult.basicInfo?.date|date:'YYYY/MM/dd')??'---'}}</b>
+              </span>
+
+              <span>
+                  <label for="state">status: </label>
+                  <b class="px-2" id="state">{{this.finalResult.basicInfo?.status?.title??'---'}}</b>
+              </span>
+
+              <span>
+                  <label for="source">source: </label>
+                  <b class="px-2" id="source">{{this.finalResult.basicInfo?.source??'---'}}</b>
+              </span>
+
+            </div>
+
+            <ng-template [ngIf]="this.finalResult.people">
+            <div class="my-2">
+              <p-table [value]="[this.finalResult.people]" [tableStyle]="{'min-width': '50rem'}">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>family</th>
+                    <th>phone number</th>
+                    <th>address</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-people>
+                  <tr>
+                    <td>{{people.id}}</td>
+                    <td>{{people.name}}</td>
+                    <td>{{people.family}}</td>
+                    <td>{{people.phoneNumber}}</td>
+                    <td>{{people.address}}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+            </ng-template>
+          </div>
+        </ng-template>
+      </p-messages>
+    </ng-template>
+  </p-card>
+</div>
